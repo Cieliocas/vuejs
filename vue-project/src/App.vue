@@ -9,21 +9,28 @@ function dizOla(nome) {
 	return `${nome} diz: Olá!`;
 }
 
-const endDaImagemJake ="https://i.pinimg.com/originals/de/64/c9/de64c999f00c57beccdaa5e70577eeef.png";
+const imagemJake ="https://i.pinimg.com/originals/de/64/c9/de64c999f00c57beccdaa5e70577eeef.png";
+const imagemFinn = "https://static.wikia.nocookie.net/adventuretimewithfinnandjake/images/f/f3/Original_Finn.png";
 
 const botaoEstaDesabilitado = false;
 
-const gostaDoJake = true;
+const gostaDoJake = false;
+const gostaDoFinn = false;
 </script>
 
 <template>
 	<h1>{{ dizOla("Jake") }}</h1>
 
-	<img v-if="gostaDoJake" :src="endDaImagemJake" alt="">
+	<img v-if="gostaDoJake" :src="imagemJake" alt="">
+	<img v-else-if="gostaDoFinn" :src="imagemFinn" alt="">
+	<h2 v-else>Não curte Hora de Aventura...</h2>
 
 	<button :disabled="botaoEstaDesabilitado">Enviar mensagem</button>
 </template>
 
 <style scoped>
 
+img {
+	max-width: 200px;
+}
 </style>
