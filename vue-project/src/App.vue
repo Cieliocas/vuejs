@@ -16,6 +16,8 @@ const botaoEstaDesabilitado = false;
 
 const gostaDoJake = false;
 const gostaDoFinn = false;
+
+const estaAutorizado = true;
 </script>
 
 <template>
@@ -24,6 +26,9 @@ const gostaDoFinn = false;
 	<img v-if="gostaDoJake" :src="imagemJake" alt="">
 	<img v-else-if="gostaDoFinn" :src="imagemFinn" alt="">
 	<h2 v-else>Não curte Hora de Aventura...</h2>
+
+	<h1 v-if="estaAutorizado">Bem-vindo</h1>
+	<h1 v-else>Não possui acesso</h1>
 
 	<button :disabled="botaoEstaDesabilitado">Enviar mensagem</button>
 </template>
