@@ -34,6 +34,10 @@ function decrementar() {
 	estado.contador--;
 }
 
+function alteraEmail(event) {
+	estado.email = event.target.value;
+}
+
 </script>
 
 <template>
@@ -54,6 +58,13 @@ function decrementar() {
 	{{ estado.contador }}
 	<button @click="incrementar" type="button">+</button>
 	<button @click="decrementar" type="button">-</button>
+	
+	<br />
+	<hr />
+
+	{{ estado.email }}
+	<input type="email" @change="alteraEmail" placeholder="Digite seu email" />
+
 </template>
 
 <style scoped>
