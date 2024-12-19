@@ -5,13 +5,13 @@ const meuObj = {
 	filmeFavorito: "matrix"
 }
 
-function dizOla() {
+function dizOla(nome) {
 	return `${nome} diz oi`;
 }
 </script>
 
 <template>
-	<h1>{{ dizOla() }}</h1>
+	<h1>{{ dizOla("Paula") }}</h1>
 </template>
 
 <style scoped>
