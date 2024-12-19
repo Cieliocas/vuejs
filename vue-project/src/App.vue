@@ -1,4 +1,6 @@
 <script setup>
+import { reactive } from 'vue';
+
 const nome = "cielio castro";
 const meuObj = {
 	nome: "cielio",
@@ -18,6 +20,20 @@ const gostaDoJake = false;
 const gostaDoFinn = false;
 
 const estaAutorizado = true;
+
+// let contador = 0;
+const estado = reactive({
+	contador: 0,
+});
+
+function incrementar() {
+	estado.contador++;
+}
+
+function decrementar() {
+	estado.contador--;
+}
+
 </script>
 
 <template>
@@ -31,6 +47,13 @@ const estaAutorizado = true;
 	<h1 v-else>Não possui acesso</h1>
 
 	<button :disabled="botaoEstaDesabilitado">Enviar mensagem</button>
+
+	<br />
+	<hr />
+
+	{{ estado.contador }}
+	<button @click="incrementar" type="button">+</button>
+	<button @click="decrementar" type="button">-</button>
 </template>
 
 <style scoped>
