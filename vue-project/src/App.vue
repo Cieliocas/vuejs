@@ -16,7 +16,7 @@ const imagemFinn = "https://static.wikia.nocookie.net/adventuretimewithfinnandja
 
 const botaoEstaDesabilitado = false;
 
-const gostaDoJake = false;
+const gostaDoJake = true;
 const gostaDoFinn = false;
 
 const estaAutorizado = true;
@@ -24,6 +24,9 @@ const estaAutorizado = true;
 // let contador = 0;
 const estado = reactive({
 	contador: 0,
+	email: '',
+	saldo: 5000,
+	transferindo: 0,
 });
 
 function incrementar() {
@@ -36,6 +39,16 @@ function decrementar() {
 
 function alteraEmail(event) {
 	estado.email = event.target.value;
+}
+
+function saldoFuturo() {
+	const { saldo, transferindo } = estado;
+	return saldo - transferindo;
+}
+
+function validaValor() {
+	const { saldo, transferindo} = estado;
+	return saldo >= transferindo;
 }
 
 </script>
@@ -65,11 +78,29 @@ function alteraEmail(event) {
 	{{ estado.email }}
 	<input type="email" @change="alteraEmail" placeholder="Digite seu email" />
 
+	<br />
+	<hr />
+
+	Saldo: {{ estado.saldo }} <br />
+	Transferindo: {{ estado.transferindo }} <br />
+	Saldo depois da transferência: {{ saldoFuturo() }} <br />
+	<input class="campo" :class="{ invalido: !validaValor() }" @keyup="evento => estado.transferindo = evento.target.value" type="number" placeholder="Quantia para transferir" />
+	<button v-if="validaValor()">Transferir</button>
+	<span v-else>Valor maior que o saldo</span>
 </template>
 
 <style scoped>
 
 img {
 	max-width: 200px;
+}
+
+.invalido {
+	outline-color: red;
+	border-color: red;
+}
+
+.campo {
+	border: 2px solid #4c00ff;
 }
 </style>
