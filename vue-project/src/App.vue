@@ -10,12 +10,16 @@ function dizOla(nome) {
 }
 
 const endDaImagemJake ="https://i.pinimg.com/originals/de/64/c9/de64c999f00c57beccdaa5e70577eeef.png";
+
 const botaoEstaDesabilitado = false;
+
+const gostaDoJake = true;
 </script>
 
 <template>
 	<h1>{{ dizOla("Jake") }}</h1>
-	<img :src="endDaImagemJake" alt="">
+
+	<img v-if="gostaDoJake" :src="endDaImagemJake" alt="">
 
 	<button :disabled="botaoEstaDesabilitado">Enviar mensagem</button>
 </template>
