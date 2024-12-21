@@ -109,6 +109,7 @@ function cadastraNome() {
 	<input @keyup="evento => estado.nomeAInserir = evento.target.value" type="text" placeholder="Digite um nome">
 	<button @click="cadastraNome" type="button">Cadastrar nome</button>
 
+	<h3 v-for="nome in estado.nomes">{{ nome }}</h3>
 </template>
 
 <style scoped>
