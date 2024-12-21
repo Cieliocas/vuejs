@@ -127,3 +127,7 @@ img {
 	border: 2px solid #4c00ff;
 }
 </style>
+
+
+
+<!-- finish project vue test -->
